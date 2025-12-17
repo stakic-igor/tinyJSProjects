@@ -34,6 +34,10 @@ main {
     width: 100%;
 }
 
+.left input::placeholder {
+    color: var(--white);
+}
+
 .left input:focus {
     outline: none;
 }
