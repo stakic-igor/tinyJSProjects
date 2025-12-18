@@ -1,0 +1,44 @@
+:root {
+    --main-bg: #b6d6cc;
+    --text-main: #020300;
+    --text-secondary: #c4c4c4;
+    --btn-primary-bg: #824670;
+
+    --default-radius: 4px;
+}
+/* FizzBuzz styles */
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-main);
+}
+
+/* form element styles */
+.input {
+    border: 0;
+    border-radius: var(--default-radius);
+    padding: 8px 16px;
+}
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(130, 70, 112, 0.5);
+}
+
+.heading {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+}
+
+.btn {
+    border: 0;
+    border-radius: var(--default-radius);
+    cursor: pointer;
+    display: block;
+    padding: 8px 16px;
+}
+
+.btn.btn--primary {
+    color: var(--main-bg);
+    background-color: var(--btn-primary-bg);
+}
