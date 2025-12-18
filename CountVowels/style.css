@@ -1,0 +1,8 @@
+
+
+.btn {
+    user-select: none;
+}
+.btn.disabled {
+    pointer-events: none;
+}

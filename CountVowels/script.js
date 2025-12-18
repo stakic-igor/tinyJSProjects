@@ -1,20 +1,28 @@
 const vowels = ["a", "e", "i", "o", "u"];
-const btnCount = document.getElementById("btnCount");
+const btnCount = document.getElementById("btn-count");
+const userWord = document.getElementById('user-word');
+const result = document.getElementById('result');
 
-const word = document.getElementById('word');
+const validate = (str) => {
+    if(str.trim() === '') {
+        return 'Please enter a word or phrase';
+    }     return null;
+}
 
-let count = 0;
 const countVowels = (str) => {
-    for(const letter of str.value.toLowerCase()) {
+    let count = 0;
+    for(const letter of str.toLowerCase()) {
         if (vowels.includes(letter)) {
             count++;
         }
     }
-    console.log(count);
-    count = 0;
+    return count;
 }
 
-
 btnCount.addEventListener("click", () => {
-    countVowels(word);
+    const errorMessage = validate(userWord.value);
+    
+    
+    const vowelCount = countVowels(userWord.value);
+    result.textContent = `Your vowels count is: ${vowelCount}`;
 });
