@@ -1,8 +1,20 @@
 const palindromeInput = document.getElementById('palindrome-input');
 const checkButton = document.getElementById('check-button');
 const result = document.getElementById('result');
+const rgx = /[a-zA-Z0-9]+/g
 
 // validation
+const validation = () => {
+    if (palindromeInput.value === '') {
+        result.innerText = "Please enter text";
+        return false;
+    }
+    if(rgx.test(palindromeInput.value)) {
+        result.innerText = "Input can contain letters and digits only!"
+        return false;
+    }
+    return true;
+}
 
 // palindrome function
 const checkPalindrome = () => {
@@ -17,5 +29,6 @@ const checkPalindrome = () => {
 
 // button action
 checkButton.addEventListener('click', () => {
+    if(!validation()) return;
     checkPalindrome();
 })
