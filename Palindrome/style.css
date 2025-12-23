@@ -1,0 +1,89 @@
+:root {
+    --main-bg-color: #f0f0f0;
+    --button-bg-color: #4CAF50;
+    --button-text-color: white;
+    --input-border-color: #ccc;
+    --error-color: #d81515;
+    --input-success-color: #4CAF50;
+    --result-text-color: #333;
+    --body-font-family: Arial, sans-serif;
+    --body-font-size: 16px;
+}
+
+body {
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+    padding: 1rem;
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 320px;
+}
+
+.heading {
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+    color: var(--result-text-color);
+    font-size: 2rem;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.input {
+    border: 1px solid var(--input-border-color);
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--button-bg-color);
+}
+
+.btn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 0.5rem;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.result {
+    margin-top: 1rem;
+    color: var(--result-text-color);
+    font-weight: bold;
+    min-height: 1.5rem;
+}
+
+.result.success {
+    color: var(--input-success-color);
+}
+
+.result.error {
+    color: var(--error-color);
+}

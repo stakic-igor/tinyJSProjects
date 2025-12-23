@@ -1,34 +1,47 @@
 const palindromeInput = document.getElementById('palindrome-input');
 const checkButton = document.getElementById('check-button');
 const result = document.getElementById('result');
-const rgx = /[a-zA-Z0-9]+/g
 
-// validation
+// validate
 const validation = () => {
     if (palindromeInput.value === '') {
-        result.innerText = "Please enter text";
+        result.innerText = "Please enter text!";
+        result.classList.add('error');
         return false;
     }
-    if(rgx.test(palindromeInput.value)) {
-        result.innerText = "Input can contain letters and digits only!"
-        return false;
-    }
+    result.classList.remove('error');
     return true;
 }
 
 // palindrome function
-const checkPalindrome = () => {
-    const original = palindromeInput.value;
-    const reverse = palindromeInput.value.split('').reverse().join('');
-    if (original === reverse) {
-         result.innerText = `The ${original} is palindrome!`
+const palindromeCheck = () => {
+    const originalInput = palindromeInput.value;
+    const cleanedInput = originalInput.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const reverseInput = cleanedInput.split('').reverse().join('');
+
+    if (cleanedInput === reverseInput) {
+        result.innerText = `Text ${originalInput} is palindrome!`;
+        result.classList.add('success');
+        result.classList.remove('error');
+        palindromeInput.value = '';
     } else {
-        result.innerText = `The ${original} is NOT palindrome!`
+        result.innerText = `Text ${originalInput} is not palindrome!`;
+        result.classList.remove('success');
+        result.classList.add('error');
     }
+};
+
+const handleCheck = () => {
+    if (!validation()) return;
+    palindromeCheck();
 }
 
-// button action
-checkButton.addEventListener('click', () => {
-    if(!validation()) return;
-    checkPalindrome();
-})
+// btn action
+checkButton.addEventListener('click', handleCheck);
+
+// enter key action
+palindromeInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleCheck();
+    }
+});
